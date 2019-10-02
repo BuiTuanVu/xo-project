@@ -133,23 +133,21 @@ class Game extends React.Component {
     handleClick(i) {
         const { stepNumber } = this.state;
         const { xIsNext } = this.state;
-        // eslint-disable-next-line react/destructuring-assignment
-        // eslint-disable-next-line react/no-access-state-in-setstate
-        // eslint-disable-next-line react/destructuring-assignment
-        const history = this.state.history.slice(0, stepNumber + 1);
-        const current = history[history.length - 1]; // Get the last element of history
+        const { history } = this.state;
+        const historyCurrent = history.slice(0, stepNumber + 1);
+        const current = historyCurrent[historyCurrent.length - 1]; // Get the last element of history
         const squares = current.squares.slice();
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
 
-        const size = Math.sqrt(history[0].squares.length);
+        const size = Math.sqrt(historyCurrent[0].squares.length);
         const location = [Math.floor(i / size) + 1, (i % size) + 1].join(',');
         squares[i] = xIsNext ? 'X' : 'O';
         this.setState({
-            history: history.concat([{ squares, location }]),
+            history: historyCurrent.concat([{ squares, location }]),
             xIsNext: !xIsNext,
-            stepNumber: history.length
+            stepNumber: historyCurrent.length
         });
     }
 
