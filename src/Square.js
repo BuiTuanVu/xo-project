@@ -1,21 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-// function Square(props) {
-//     return(
-//       <button className="square" data-pro={props.value} onClick={props.onClick}>{props.value}</button>
+// class Square extends Component {
+//   render() {
+//     const { value } = this.props;
+//     const { onClick } = this.props;
+//     const { winner } = this.props;
+//     const squareClass = `square ${winner}`
+//     return (
+
+//       <button className={squareClass} data-pro={value} onClick={onClick}>{value}</button>
+
 //     );
 //   }
+// }
 
-class Square extends Component {
-  render() {
-    const squareClass = `square ${this.props.winner}`
-    return (
+const Square = function (props) {
+  const { value } = props;
+  const { onClick } = props;
+  const { winner } = props;
+  const squareClass = `square ${winner}`
+  return (
 
-      <button className={squareClass} data-pro={this.props.value} onClick={this.props.onClick}>{this.props.value}</button>
+    <button type="button" className={squareClass} data-pro={value} onClick={onClick}>{value}</button>
 
-    );
-  }
+  );
+
 }
-
 export default Square;
