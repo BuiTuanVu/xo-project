@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Game from './Game';
-import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import devToolsEnhancer from 'remote-redux-devtools';
+import { gameReducer } from './reducers/index';
 
-ReactDOM.render(<Game />, document.getElementById('root'));
+import GameContainer from './containers/GameContainer';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+
+const store = createStore(gameReducer, devToolsEnhancer());
+
+
+
+ReactDOM.render(<Provider store={store}>
+    <GameContainer />
+</Provider>,
+    document.getElementById('root'));
