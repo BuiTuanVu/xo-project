@@ -4,11 +4,15 @@
   "private": true,
   "homepage": "https://BuiTuanVu.github.io/BTCN03-Refactor/",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "gh-pages": "^2.1.1",
+    "mdbreact": "^4.21.1",
     "nodemon": "^1.19.4",
     "react": "^16.10.1",
+    "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.10.1",
     "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
     "redux": "^4.0.4",
     "remote-redux-devtools": "^0.5.16"
